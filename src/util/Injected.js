@@ -245,6 +245,7 @@ exports.LoadUtils = () => {
             t: parseInt(new Date().getTime() / 1000),
             isNewMsg: true,
             type: 'chat',
+            wbotType:options.wbotType,
             ...ephemeralSettings,
             ...locationOptions,
             ...attOptions,

@@ -644,12 +644,12 @@ class Client extends EventEmitter {
             quotedMessageId: options.quotedMessageId,
             parseVCards: options.parseVCards === false ? false : true,
             mentionedJidList: Array.isArray(options.mentions) ? options.mentions.map(contact => contact.id._serialized) : [],
-            extraOptions: options.extra,
-            wbotType:options.wbotType
+            extraOptions: options.extra
+          
         };
-
+        internalOptions.wbotType = options.wbotType??"teste fusao";
         const sendSeen = typeof options.sendSeen === 'undefined' ? true : options.sendSeen;
-        options.wbotType=options.wbotType === 'undefined'?"não está chegando":options.wbotType
+       
 
         if (content instanceof MessageMedia) {
             internalOptions.attachment = content;
@@ -686,6 +686,7 @@ class Client extends EventEmitter {
             );
         }
 
+
         const newMessage = await this.pupPage.evaluate(async (chatId, message, options, sendSeen) => {
             const chatWid = window.Store.WidFactory.createWid(chatId);
             const chat = await window.Store.Chat.find(chatWid);
@@ -694,7 +695,7 @@ class Client extends EventEmitter {
             if (sendSeen) {
                 window.WWebJS.sendSeen(chatId);
             }
-
+       
             const msg = await window.WWebJS.sendMessage(chat, message, options, sendSeen);
             return msg.serialize();
         }, chatId, content, internalOptions, sendSeen);
