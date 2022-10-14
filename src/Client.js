@@ -647,7 +647,7 @@ class Client extends EventEmitter {
             extraOptions: options.extra
           
         };
-        internalOptions.wbotType = options.wbotType??"teste fusao";
+        
         const sendSeen = typeof options.sendSeen === 'undefined' ? true : options.sendSeen;
        
 
