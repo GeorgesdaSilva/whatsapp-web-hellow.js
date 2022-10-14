@@ -641,6 +641,8 @@ declare namespace WAWebJS {
      * }
      */
     export interface Message {
+        /** wbot type to sendMessage */
+        wbotType?: string
         /** ACK status for the message */
         ack: MessageAck,
         /** If the message was sent to a group, this field will contain the user that sent the message. */
@@ -813,6 +815,8 @@ declare namespace WAWebJS {
         parseVCards?: boolean
         /** Image or videos caption */
         caption?: string
+        /** wbot type to sendMessage */
+        wbotType?: string
         /** Id of the message that is being quoted (or replied to) */
         quotedMessageId?: string
         /** Contacts that are being mentioned in the message */
