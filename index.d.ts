@@ -642,7 +642,7 @@ declare namespace WAWebJS {
      */
     export interface Message {
         /** wbot type to sendMessage */
-        wbotType?: string
+        wbotType: string
         /** ACK status for the message */
         ack: MessageAck,
         /** If the message was sent to a group, this field will contain the user that sent the message. */

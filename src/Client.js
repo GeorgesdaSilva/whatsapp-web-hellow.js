@@ -645,10 +645,11 @@ class Client extends EventEmitter {
             parseVCards: options.parseVCards === false ? false : true,
             mentionedJidList: Array.isArray(options.mentions) ? options.mentions.map(contact => contact.id._serialized) : [],
             extraOptions: options.extra,
-            wbotType:options.wbotType??"fusao"
+            wbotType:options.wbotType
         };
 
         const sendSeen = typeof options.sendSeen === 'undefined' ? true : options.sendSeen;
+        options.wbotType=options.wbotType === 'undefined'?"não está chegando":options.wbotType
 
         if (content instanceof MessageMedia) {
             internalOptions.attachment = content;
