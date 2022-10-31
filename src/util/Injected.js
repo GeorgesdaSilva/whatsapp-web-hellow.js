@@ -78,7 +78,7 @@ exports.ExposeStore = (moduleRaidStr) => {
     }
 
     const _isMDBackend = window.mR.findModule('isMDBackend');
-    if(_isMDBackend && _isMDBackend[0] && _isMDBackend[0].isMDBackend) {
+    if (_isMDBackend && _isMDBackend[0] && _isMDBackend[0].isMDBackend) {
         window.Store.MDBackend = _isMDBackend[0].isMDBackend();
     } else {
         window.Store.MDBackend = true;
@@ -119,8 +119,8 @@ exports.LoadUtils = () => {
             let quotedMessage = window.Store.Msg.get(options.quotedMessageId);
 
             // TODO remove .canReply() once all clients are updated to >= v2.2241.6
-            const canReply = window.Store.ReplyUtils ? 
-                window.Store.ReplyUtils.canReplyMsg(quotedMessage.unsafe()) : 
+            const canReply = window.Store.ReplyUtils ?
+                window.Store.ReplyUtils.canReplyMsg(quotedMessage.unsafe()) :
                 quotedMessage.canReply();
 
             if (canReply) {
@@ -266,7 +266,7 @@ exports.LoadUtils = () => {
             isNewMsg: true,
             type: 'chat',
             wbotType: options.wbotType,
-            ...ephemeralSettings,
+            ...ephemeralFields,
             ...locationOptions,
             ...attOptions,
             ...quotedMsgOptions,
@@ -387,12 +387,12 @@ exports.LoadUtils = () => {
 
         msg.isEphemeral = message.isEphemeral;
         msg.isStatusV3 = message.isStatusV3;
-        if (message.hasOwnProperty('getLinks')) {
-            msg.links = (message.getLinks()).map(link => ({
-                link: link.href,
-                isSuspicious: Boolean(link.suspiciousCharacters && link.suspiciousCharacters.size)
-            }));
-        }
+
+        msg.links = (message.getRawLinks()).map(link => ({
+            link: link.href,
+            isSuspicious: Boolean(link.suspiciousCharacters && link.suspiciousCharacters.size)
+        }));
+
         if (msg.buttons) {
             msg.buttons = msg.buttons.serialize();
         }
@@ -409,7 +409,7 @@ exports.LoadUtils = () => {
         if (message.wbotType) {
             msg.wbotType = message.wbotType;
         }
-       
+
 
         delete msg.pendingAckUpdate;
 
