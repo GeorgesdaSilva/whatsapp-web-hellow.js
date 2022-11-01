@@ -77,12 +77,8 @@ exports.ExposeStore = (moduleRaidStr) => {
         window.Store.Wap = _linkPreview[0].default;
     }
 
-    const _isMDBackend = window.mR.findModule('isMDBackend');
-    if (_isMDBackend && _isMDBackend[0] && _isMDBackend[0].isMDBackend) {
-        window.Store.MDBackend = _isMDBackend[0].isMDBackend();
-    } else {
-        window.Store.MDBackend = true;
-    }
+    window.Store.MDBackend = true;
+
 };
 
 exports.LoadUtils = () => {
