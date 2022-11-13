@@ -14,7 +14,7 @@ exports.ExposeStore = (moduleRaidStr) => {
     window.Store.CryptoLib = window.mR.findModule('decryptE2EMedia')[0];
     window.Store.DownloadManager = window.mR.findModule('downloadManager')[0].downloadManager;
     window.Store.Features = window.mR.findModule('FEATURE_CHANGE_EVENT')[0].LegacyPhoneFeatures;
-    window.Store.GroupMetadata = window.mR.findModule((module) => module.default && module.default.handlePendingInvite)[0].default;
+    window.Store.GroupMetadata = window.mR.findModule('GroupMetadata')[0].default.GroupMetadata;
     window.Store.Invite = window.mR.findModule('sendJoinGroupViaInvite')[0];
     window.Store.InviteInfo = window.mR.findModule('sendQueryGroupInvite')[0];
     window.Store.Label = window.mR.findModule('LabelCollection')[0].LabelCollection;
@@ -77,8 +77,12 @@ exports.ExposeStore = (moduleRaidStr) => {
         window.Store.Wap = _linkPreview[0].default;
     }
 
-    window.Store.MDBackend = true;
-
+    const _isMDBackend = window.mR.findModule('isMDBackend');
+    if(_isMDBackend && _isMDBackend[0] && _isMDBackend[0].isMDBackend) {
+        window.Store.MDBackend = _isMDBackend[0].isMDBackend();
+    } else {
+        window.Store.MDBackend = true;
+    }
 };
 
 exports.LoadUtils = () => {
@@ -115,8 +119,8 @@ exports.LoadUtils = () => {
             let quotedMessage = window.Store.Msg.get(options.quotedMessageId);
 
             // TODO remove .canReply() once all clients are updated to >= v2.2241.6
-            const canReply = window.Store.ReplyUtils ?
-                window.Store.ReplyUtils.canReplyMsg(quotedMessage.unsafe()) :
+            const canReply = window.Store.ReplyUtils ? 
+                window.Store.ReplyUtils.canReplyMsg(quotedMessage.unsafe()) : 
                 quotedMessage.canReply();
 
             if (canReply) {
@@ -241,11 +245,6 @@ exports.LoadUtils = () => {
 
         const extraOptions = options.extraOptions || {};
         delete options.extraOptions;
-        const ephemeralSettings = {
-            ephemeralDuration: chat.hasOwnProperty('isEphemeralSettingOn') && chat.isEphemeralSettingOn() ? chat.getEphemeralSetting() : undefined,
-            ephemeralSettingTimestamp: chat.hasOwnProperty('getEphemeralSettingTimestamp') ? (chat.getEphemeralSettingTimestamp() || undefined) : undefined,
-            disappearingModeInitiator: chat.hasOwnProperty('getDisappearingModeInitiator') ? (chat.getDisappearingModeInitiator() || undefined) : undefined,
-        };
 
         const ephemeralFields = window.Store.EphemeralFields.getEphemeralFields(chat);
 
@@ -383,7 +382,6 @@ exports.LoadUtils = () => {
 
         msg.isEphemeral = message.isEphemeral;
         msg.isStatusV3 = message.isStatusV3;
-
         msg.links = (message.getRawLinks()).map(link => ({
             link: link.href,
             isSuspicious: Boolean(link.suspiciousCharacters && link.suspiciousCharacters.size)
