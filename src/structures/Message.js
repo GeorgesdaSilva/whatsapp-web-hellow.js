@@ -311,8 +311,11 @@ class Message extends Base {
         if (!this.hasQuotedMsg) return undefined;
 
         const quotedMsg = await this.client.pupPage.evaluate((msgId) => {
-            let msg = window.Store.Msg.get(msgId);
-            return msg.quotedMsgObj().serialize();
+            // let msg = window.Store.Msg.get(msgId);
+            // return msg.quotedMsgObj().serialize();
+            const msg = window.Store.Msg.get(msgId);
+            const quotedMsg = window.Store.QuotedMsg.getQuotedMsgObj(msg);
+            return window.WWebJS.getMessageModel(quotedMsg);
         }, this.id._serialized);
 
         return new Message(this.client, quotedMsg);
