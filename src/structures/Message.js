@@ -392,7 +392,9 @@ class Message extends Base {
 
         const result = await this.client.pupPage.evaluate(async (msgId) => {
             const msg = window.Store.Msg.get(msgId);
-
+            if (!msg) {
+                return undefined;
+            }
             if (msg.mediaData.mediaStage != 'RESOLVED') {
                 // try to resolve media
                 await msg.downloadMedia({
@@ -443,7 +445,8 @@ class Message extends Base {
         await this.client.pupPage.evaluate((msgId, everyone) => {
             let msg = window.Store.Msg.get(msgId);
 
-            if (everyone && msg._canRevoke()) {
+            const canRevoke = window.Store.MsgActionChecks.canSenderRevokeMsg(msg) || window.Store.MsgActionChecks.canAdminRevokeMsg(msg);
+            if (everyone && canRevoke) {
                 return window.Store.Cmd.sendRevokeMsgs(msg.chat, [msg], { type: msg.id.fromMe ? 'Sender' : 'Admin' });
             }
 
@@ -458,7 +461,7 @@ class Message extends Base {
         await this.client.pupPage.evaluate((msgId) => {
             let msg = window.Store.Msg.get(msgId);
 
-            if (msg.canStar()) {
+            if (window.Store.MsgActionChecks.canStarMsg(msg)) {
                 return window.Store.Cmd.sendStarMsgs(msg.chat, [msg], false);
             }
         }, this.id._serialized);
@@ -471,7 +474,7 @@ class Message extends Base {
         await this.client.pupPage.evaluate((msgId) => {
             let msg = window.Store.Msg.get(msgId);
 
-            if (msg.canStar()) {
+            if (window.Store.MsgActionChecks.canStarMsg(msg)) {
                 return window.Store.Cmd.sendUnstarMsgs(msg.chat, [msg], false);
             }
         }, this.id._serialized);
