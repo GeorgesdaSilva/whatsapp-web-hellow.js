@@ -271,7 +271,6 @@ exports.LoadUtils = () => {
             wbotType: options.wbotType,
             ...ephemeralFields,
             wbotType: options.wbotType,
-            ...ephemeralSettings,
             ...locationOptions,
             ...attOptions,
             ...quotedMsgOptions,
