@@ -5,10 +5,14 @@
   <meta name="generator" content="JSDoc 3.6.11">
   <meta charset="utf-8">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <title>whatsapp-web.js 1.19.4 &raquo; Class: GroupChat</title>
 =======
   <title>whatsapp-web.js 1.18.2 &raquo; Class: GroupChat</title>
 >>>>>>> syncronlib
+=======
+  <title>whatsapp-web.js 1.21.0 &raquo; Class: GroupChat</title>
+>>>>>>> v1.21.0
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Karla:400,400i,700,700i" type="text/css">
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Noto+Serif:400,400i,700,700i" type="text/css">
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Inconsolata:500" type="text/css">
@@ -20,10 +24,14 @@
     <div id="jsdoc-navbar-container">
       <div id="jsdoc-navbar-content">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>19.<wbr>4</a>
 =======
         <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>18.<wbr>2</a>
 >>>>>>> syncronlib
+=======
+        <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>21.<wbr>0</a>
+>>>>>>> v1.21.0
       </div>
     </div>
   </nav>
@@ -72,19 +80,22 @@
                     <dt><a href="GroupChat.html#isReadOnly">isReadOnly</a></dt>
                     <dd>
                     </dd>
+                    <dt><a href="GroupChat.html#lastMessage">lastMessage</a></dt>
+                    <dd>
+                    </dd>
                     <dt><a href="GroupChat.html#muteExpiration">muteExpiration</a></dt>
                     <dd>
                     </dd>
                     <dt><a href="GroupChat.html#name">name</a></dt>
                     <dd>
                     </dd>
-                    <dt><a href="GroupChat.html#owner">owner</a></dt>
-                    <dd>
-                    </dd>
                   </dl>
                 </div>
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
+                    <dt><a href="GroupChat.html#owner">owner</a></dt>
+                    <dd>
+                    </dd>
                     <dt><a href="GroupChat.html#participants">participants</a></dt>
                     <dd>
                     </dd>
@@ -121,6 +132,9 @@
                     <dt><a href="GroupChat.html#delete">delete()</a></dt>
                     <dd>
                     </dd>
+                    <dt><a href="GroupChat.html#deletePicture">deletePicture()</a></dt>
+                    <dd>
+                    </dd>
                     <dt><a href="GroupChat.html#demoteParticipants">demoteParticipants(participantIds)</a></dt>
                     <dd>
                     </dd>
@@ -133,13 +147,13 @@
                     <dt><a href="GroupChat.html#getInviteCode">getInviteCode()</a></dt>
                     <dd>
                     </dd>
-                    <dt><a href="GroupChat.html#getLabels">getLabels()</a></dt>
-                    <dd>
-                    </dd>
                   </dl>
                 </div>
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
+                    <dt><a href="GroupChat.html#getLabels">getLabels()</a></dt>
+                    <dd>
+                    </dd>
                     <dt><a href="GroupChat.html#leave">leave()</a></dt>
                     <dd>
                     </dd>
@@ -167,13 +181,13 @@
                     <dt><a href="GroupChat.html#sendSeen">sendSeen()</a></dt>
                     <dd>
                     </dd>
-                    <dt><a href="GroupChat.html#sendStateRecording">sendStateRecording()</a></dt>
-                    <dd>
-                    </dd>
                   </dl>
                 </div>
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
+                    <dt><a href="GroupChat.html#sendStateRecording">sendStateRecording()</a></dt>
+                    <dd>
+                    </dd>
                     <dt><a href="GroupChat.html#sendStateTyping">sendStateTyping()</a></dt>
                     <dd>
                     </dd>
@@ -184,6 +198,9 @@
                     <dd>
                     </dd>
                     <dt><a href="GroupChat.html#setMessagesAdminsOnly">setMessagesAdminsOnly([adminsOnly])</a></dt>
+                    <dd>
+                    </dd>
+                    <dt><a href="GroupChat.html#setPicture">setPicture(media)</a></dt>
                     <dd>
                     </dd>
                     <dt><a href="GroupChat.html#setSubject">setSubject(subject)</a></dt>
@@ -257,6 +274,13 @@
               <dl class="dl-compact">
                 <dt>Inherited from</dt>
                 <dd><a href="Chat.html#isReadOnly">Chat#isReadOnly</a></dd>
+              </dl>
+              <h3 id="lastMessage"><span class="symbol-name">lastMessage</span><small class="property-type">
+                  &nbsp;unknown</small></h3>
+              <p>Last message fo chat</p>
+              <dl class="dl-compact">
+                <dt>Inherited from</dt>
+                <dd><a href="Chat.html#lastMessage">Chat#lastMessage</a></dd>
               </dl>
               <h3 id="muteExpiration"><span class="symbol-name">muteExpiration</span><small class="property-type">
                   &nbsp;unknown</small></h3>
@@ -377,6 +401,17 @@
                 <dt>Returns</dt>
                 <dd>
                   <p>result</p>
+                </dd>
+              </dl>
+              <div class="symbol-detail-labels"><span class="label label-async">async</span></div>
+              <h3 id="deletePicture"><span class="symbol-name">deletePicture</span><span class="signature"><span class="signature-params">()</span>&nbsp;&rarr; <span class="signature-returns"> Promise containing boolean</span></span></h3>
+              <p>Deletes the group's picture.</p>
+              <dl class="dl-compact">
+                <dt>Returns</dt>
+                <dd>
+                  <p><code>Promise containing boolean</code> 
+                  <p>Returns true if the picture was properly deleted. This can return false if the user does not have the necessary permissions.</p>
+                  </p>
                 </dd>
               </dl>
               <div class="symbol-detail-labels"><span class="label label-async">async</span></div>
@@ -876,6 +911,45 @@
                 </dd>
               </dl>
               <div class="symbol-detail-labels"><span class="label label-async">async</span></div>
+              <h3 id="setPicture"><span class="symbol-name">setPicture</span><span class="signature"><span class="signature-params">(media)</span>&nbsp;&rarr; <span class="signature-returns"> Promise containing boolean</span></span></h3>
+              <p>Sets the group's picture.</p>
+              <section>
+                <h4>Parameter</h4>
+                <table class="jsdoc-details-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Optional</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p>media</p>
+                      </td>
+                      <td>
+                        <p><a href="MessageMedia.html">MessageMedia</a></p>
+                      </td>
+                      <td>
+                        <p>&nbsp;</p>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+              <dl class="dl-compact">
+                <dt>Returns</dt>
+                <dd>
+                  <p><code>Promise containing boolean</code> 
+                  <p>Returns true if the picture was properly updated. This can return false if the user does not have the necessary permissions.</p>
+                  </p>
+                </dd>
+              </dl>
+              <div class="symbol-detail-labels"><span class="label label-async">async</span></div>
               <h3 id="setSubject"><span class="symbol-name">setSubject</span><span class="signature"><span class="signature-params">(subject)</span>&nbsp;&rarr; <span class="signature-returns"> Promise containing boolean</span></span></h3>
               <p>Updates the group subject</p>
               <section>
@@ -950,10 +1024,14 @@
     <div id="jsdoc-footer-container">
       <p>
 <<<<<<< HEAD
+<<<<<<< HEAD
         Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.11 on February 11, 2023.
 =======
         Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.7 on October 26, 2022.
 >>>>>>> syncronlib
+=======
+        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.11 on May 29, 2023.
+>>>>>>> v1.21.0
       </p>
     </div>
   </footer>
