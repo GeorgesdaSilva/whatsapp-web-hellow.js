@@ -281,7 +281,6 @@ exports.LoadUtils = () => {
             type: 'chat',
             wbotType: options.wbotType,
             ...ephemeralFields,
-            wbotType: options.wbotType,
             ...locationOptions,
             ...attOptions,
             ...(attOptions.toJSON ? attOptions.toJSON() : {}),
@@ -295,12 +294,12 @@ exports.LoadUtils = () => {
         await window.Store.SendMessage.addAndSendMsgToChat(chat, message);
         return window.Store.Msg.get(newMsgId._serialized);
     };
-	
+
     window.WWebJS.editMessage = async (msg, content, options = {}) => {
 
         const extraOptions = options.extraOptions || {};
         delete options.extraOptions;
-        
+
         if (options.mentionedJidList) {
             options.mentionedJidList = options.mentionedJidList.map(cId => window.Store.Contact.get(cId).id);
         }
@@ -309,7 +308,7 @@ exports.LoadUtils = () => {
             options.linkPreview = null;
 
             // Not supported yet by WhatsApp Web on MD
-            if(!window.Store.MDBackend) {
+            if (!window.Store.MDBackend) {
                 const link = window.Store.Validators.findLink(content);
                 if (link) {
                     const preview = await window.Store.Wap.queryLinkPreview(link.url);
