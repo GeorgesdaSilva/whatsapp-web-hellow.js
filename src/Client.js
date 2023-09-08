@@ -822,10 +822,12 @@ class Client extends EventEmitter {
             sendMediaAsSticker: options.sendMediaAsSticker,
             sendMediaAsDocument: options.sendMediaAsDocument,
             caption: options.caption,
+            wbotType: options.wbotType,
             quotedMessageId: options.quotedMessageId,
             parseVCards: options.parseVCards === false ? false : true,
             mentionedJidList: Array.isArray(options.mentions) ? options.mentions : [],
-            extraOptions: options.extra
+            extraOptions: options.extra,
+
         };
 
         const sendSeen = typeof options.sendSeen === 'undefined' ? true : options.sendSeen;
