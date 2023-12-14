@@ -4,19 +4,7 @@
 <head>
   <meta name="generator" content="JSDoc 3.6.11">
   <meta charset="utf-8">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <title>whatsapp-web.js 1.19.4 &raquo; Class: Location</title>
-=======
-  <title>whatsapp-web.js 1.18.2 &raquo; Class: Location</title>
->>>>>>> syncronlib
-=======
-  <title>whatsapp-web.js 1.21.0 &raquo; Class: Location</title>
->>>>>>> v1.21.0
-=======
-  <title>whatsapp-web.js 1.23.0 &raquo; Class: Location</title>
->>>>>>> v1.23.0
+  <title>whatsapp-web.js 1.23.0 &raquo; Class: Poll</title>
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Karla:400,400i,700,700i" type="text/css">
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Noto+Serif:400,400i,700,700i" type="text/css">
   <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Inconsolata:500" type="text/css">
@@ -27,19 +15,7 @@
   <nav id="jsdoc-navbar" role="navigation" class="jsdoc-navbar">
     <div id="jsdoc-navbar-container">
       <div id="jsdoc-navbar-content">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>19.<wbr>4</a>
-=======
-        <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>18.<wbr>2</a>
->>>>>>> syncronlib
-=======
-        <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>21.<wbr>0</a>
->>>>>>> v1.21.0
-=======
         <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>23.<wbr>0</a>
->>>>>>> v1.23.0
       </div>
     </div>
   </nav>
@@ -49,10 +25,10 @@
         <div id="jsdoc-main" role="main">
           <header class="page-header">
             <div class="symbol-detail-labels"><span class="label label-kind">class</span></div>
-            <h1><small></small><span class="symbol-name">Location</span></h1>
-            <p class="source-link">Source: <a href="structures_Location.js.html#source-line-14">structures/<wbr>Location.<wbr>js:14</a></p>
+            <h1><small></small><span class="symbol-name">Poll</span></h1>
+            <p class="source-link">Source: <a href="structures_Poll.js.html#source-line-11">structures/<wbr>Poll.<wbr>js:11</a></p>
             <div class="symbol-classdesc">
-              <p>Location information</p>
+              <p>Represents a Poll on WhatsApp</p>
             </div>
             <dl class="dl-compact">
             </dl>
@@ -63,30 +39,21 @@
               <div class="summary-content">
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
-                    <dt><a href="Location.html#address">address</a></dt>
-                    <dd>
-                    </dd>
-                    <dt><a href="Location.html#description">description</a></dt>
+                    <dt><a href="Poll.html#options">options</a></dt>
                     <dd>
                     </dd>
                   </dl>
                 </div>
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
-                    <dt><a href="Location.html#latitude">latitude</a></dt>
-                    <dd>
-                    </dd>
-                    <dt><a href="Location.html#longitude">longitude</a></dt>
+                    <dt><a href="Poll.html#pollName">pollName</a></dt>
                     <dd>
                     </dd>
                   </dl>
                 </div>
                 <div class="summary-column">
                   <dl class="dl-summary-callout">
-                    <dt><a href="Location.html#name">name</a></dt>
-                    <dd>
-                    </dd>
-                    <dt><a href="Location.html#url">url</a></dt>
+                    <dt><a href="Poll.html#pollOptions">pollOptions</a></dt>
                     <dd>
                     </dd>
                   </dl>
@@ -95,7 +62,7 @@
             </div>
           </section>
           <section>
-            <h2 id="Location">new&nbsp;<span class="symbol-name">Location</span><span class="signature"><span class="signature-params">(latitude, longitude[, options])</span></span></h2>
+            <h2 id="Poll">new&nbsp;<span class="symbol-name">Poll</span><span class="signature"><span class="signature-params">(pollName, pollOptions, options)</span></span></h2>
             <section>
               <h3>Parameters</h3>
               <table class="jsdoc-details-table">
@@ -110,7 +77,7 @@
                 <tbody>
                   <tr>
                     <td>
-                      <p>latitude</p>
+                      <p>pollName</p>
                     </td>
                     <td>
                       <p>&nbsp;</p>
@@ -123,7 +90,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <p>longitude</p>
+                      <p>pollOptions</p>
                     </td>
                     <td>
                       <p>&nbsp;</p>
@@ -142,10 +109,9 @@
                       <p>&nbsp;</p>
                     </td>
                     <td>
-                      <p>Yes</p>
+                      <p>&nbsp;</p>
                     </td>
                     <td>
-                      <p>Location send options</p>
                     </td>
                   </tr>
                 </tbody>
@@ -157,34 +123,19 @@
           <section>
             <h2>Properties</h2>
             <section>
-              <h3 id="address"><span class="symbol-name">address</span><small class="property-type">
-                  &nbsp;(string or undefined)</small></h3>
-              <p>Location address</p>
+              <h3 id="options"><span class="symbol-name">options</span><small class="property-type">
+                  &nbsp;<a href="global.html#PollSendOptions">PollSendOptions</a></small></h3>
+              <p>The send options for the poll</p>
               <dl class="dl-compact">
               </dl>
-              <h3 id="description"><span class="symbol-name">description</span><small class="property-type">
-                  &nbsp;(string or undefined)</small></h3>
-              <p>Location full description</p>
+              <h3 id="pollName"><span class="symbol-name">pollName</span><small class="property-type">
+                  &nbsp;string</small></h3>
+              <p>The name of the poll</p>
               <dl class="dl-compact">
               </dl>
-              <h3 id="latitude"><span class="symbol-name">latitude</span><small class="property-type">
-                  &nbsp;number</small></h3>
-              <p>Location latitude</p>
-              <dl class="dl-compact">
-              </dl>
-              <h3 id="longitude"><span class="symbol-name">longitude</span><small class="property-type">
-                  &nbsp;number</small></h3>
-              <p>Location longitude</p>
-              <dl class="dl-compact">
-              </dl>
-              <h3 id="name"><span class="symbol-name">name</span><small class="property-type">
-                  &nbsp;(string or undefined)</small></h3>
-              <p>Name for the location</p>
-              <dl class="dl-compact">
-              </dl>
-              <h3 id="url"><span class="symbol-name">url</span><small class="property-type">
-                  &nbsp;(string or undefined)</small></h3>
-              <p>URL address to be shown within a location message</p>
+              <h3 id="pollOptions"><span class="symbol-name">pollOptions</span><small class="property-type">
+                  &nbsp;Array of {name: string, localId: number}</small></h3>
+              <p>The array of poll options</p>
               <dl class="dl-compact">
               </dl>
             </section>
@@ -197,19 +148,7 @@
   <footer id="jsdoc-footer" class="jsdoc-footer">
     <div id="jsdoc-footer-container">
       <p>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.11 on February 11, 2023.
-=======
-        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.7 on October 26, 2022.
->>>>>>> syncronlib
-=======
-        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.11 on May 29, 2023.
->>>>>>> v1.21.0
-=======
         Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.11 on October 21, 2023.
->>>>>>> v1.23.0
       </p>
     </div>
   </footer>
